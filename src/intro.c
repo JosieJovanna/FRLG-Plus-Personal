@@ -5,6 +5,7 @@
 #include "scanline_effect.h"
 #include "libgcnmultiboot.h"
 #include "new_menu_helpers.h"
+#include "overworld.h"
 #include "link.h"
 #include "menu.h"
 #include "random.h"
@@ -1383,6 +1384,7 @@ static void IntroCB_Scene1(struct IntroSequenceData * this)
 
 static void Scene1_Task_AnimateGrass(u8 taskId)
 {
+    s16 * data = gTasks[taskId].data;
 		// Quickload
 		if (JOY_HELD(L_BUTTON) || JOY_HELD(R_BUTTON) || JOY_NEW(L_BUTTON) || JOY_NEW(R_BUTTON))
 		{
@@ -1390,7 +1392,6 @@ static void Scene1_Task_AnimateGrass(u8 taskId)
 				DestroyTask(taskId);
 				return;
 		}
-    s16 * data = gTasks[taskId].data;
 
     // Each of the 3 frames of the bg grass animation is separated vertically on the tilemap.
     // The conditional below changes the frame by setting the y coordinate of the bg.
