@@ -3960,7 +3960,7 @@ const struct WildPokemon sSafariZoneCenter_LeafGreen_LandMons[] =
     { 31, 31, SPECIES_NIDORINO },
     { 30, 30, SPECIES_PARASECT },
     { 22, 22, SPECIES_VENONAT },
-    { 23, 23, SPECIES_PINSIR },
+    { 23, 23, SPECIES_SCYTHER },
     { 22, 22, SPECIES_VENONAT },
     { 23, 23, SPECIES_CHANSEY },
 };
