@@ -1006,6 +1006,12 @@ void CB2_InitCopyrightScreenAfterTitleScreen(void)
 
 static void CB2_SetUpIntro(void)
 {
+		// Quickload
+		if (JOY_HELD(L_BUTTON) || JOY_HELD(R_BUTTON) || JOY_NEW(L_BUTTON) || JOY_NEW(R_BUTTON))
+		{
+				SetMainCallback2(CB2_ContinueSavedGame);
+				return;
+		}
     switch (gMain.state)
     {
     default:
@@ -1220,6 +1226,12 @@ static void IntroCB_GF_RevealName(struct IntroSequenceData * this)
 
 static void IntroCB_GF_RevealLogo(struct IntroSequenceData * this)
 {
+		// Quickload
+		if (JOY_HELD(L_BUTTON) || JOY_HELD(R_BUTTON) || JOY_NEW(L_BUTTON) || JOY_NEW(R_BUTTON))
+		{
+				SetMainCallback2(CB2_ContinueSavedGame);
+				return;
+		}
     switch (this->state)
     {
     case 0:
@@ -1285,6 +1297,12 @@ static void IntroCB_GF_RevealLogo(struct IntroSequenceData * this)
 
 static void IntroCB_Scene1(struct IntroSequenceData * this)
 {
+		// Quickload
+		if (JOY_HELD(L_BUTTON) || JOY_HELD(R_BUTTON) || JOY_NEW(L_BUTTON) || JOY_NEW(R_BUTTON))
+		{
+				SetMainCallback2(CB2_ContinueSavedGame);
+				return;
+		}
     switch (this->state)
     {
     case 0:
@@ -1365,6 +1383,13 @@ static void IntroCB_Scene1(struct IntroSequenceData * this)
 
 static void Scene1_Task_AnimateGrass(u8 taskId)
 {
+		// Quickload
+		if (JOY_HELD(L_BUTTON) || JOY_HELD(R_BUTTON) || JOY_NEW(L_BUTTON) || JOY_NEW(R_BUTTON))
+		{
+				SetMainCallback2(CB2_ContinueSavedGame);
+				DestroyTask(taskId);
+				return;
+		}
     s16 * data = gTasks[taskId].data;
 
     // Each of the 3 frames of the bg grass animation is separated vertically on the tilemap.
@@ -1421,6 +1446,18 @@ static void Scene1_Task_BgZoom(u8 taskId)
 
 static void IntroCB_Scene2(struct IntroSequenceData * this)
 {
+		// Quickload
+		if (JOY_HELD(L_BUTTON) || JOY_HELD(R_BUTTON) || JOY_NEW(L_BUTTON) || JOY_NEW(R_BUTTON))
+		{
+				SetMainCallback2(CB2_ContinueSavedGame);
+				return;
+		}
+		// Quickload
+		if (JOY_HELD(L_BUTTON) || JOY_HELD(R_BUTTON) || JOY_NEW(L_BUTTON) || JOY_NEW(R_BUTTON))
+		{
+				SetMainCallback2(CB2_ContinueSavedGame);
+				return;
+		}
     switch (this->state)
     {
     case 0:
